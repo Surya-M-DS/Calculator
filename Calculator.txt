@@ -1,0 +1,182 @@
+from tkinter import *
+import pyttsx3
+
+engine = pyttsx3.init()
+
+root = Tk()
+
+root.geometry('550x450+385+110')
+root.resizable(False,False)
+root.title('C A L C U L A T O R')
+root.configure(bg='#17161b')
+
+expression = " "
+
+def getVal1():
+    global expression
+    expression = expression + '1'
+    entrylabel.configure(text=expression)
+
+def getVal2():
+    global expression
+    expression = expression + '2'
+    entrylabel.configure(text=expression)
+    
+def getVal3():
+    global expression
+    expression = expression + '3'
+    entrylabel.configure(text=expression)
+    
+def getVal4():
+    global expression
+    expression = expression + '4'
+    entrylabel.configure(text=expression)
+    
+def getVal5():
+    global expression
+    expression = expression + '5'
+    entrylabel.configure(text=expression)
+    
+def getVal6():
+    global expression
+    expression = expression + '6'
+    entrylabel.configure(text=expression)
+    
+def getVal7():
+    global expression
+    expression = expression + '7'
+    entrylabel.configure(text=expression)
+    
+def getVal8():
+    global expression
+    expression = expression + '8'
+    entrylabel.configure(text=expression)
+    
+def getVal9():
+    global expression
+    expression = expression + '9'
+    entrylabel.configure(text=expression)
+    
+def getVal0():
+    global expression
+    expression = expression + '0'
+    entrylabel.configure(text=expression)
+    
+def getVal_add():
+    global expression
+    expression = expression + '+'
+    entrylabel.configure(text=expression)
+
+    
+def getVal_sub():
+    global expression
+    expression = expression + '-'
+    entrylabel.configure(text=expression)
+    
+def getVal_mul():
+    global expression
+    expression = expression + '*'
+    entrylabel.configure(text=expression)
+    
+def getVal_div():
+    global expression
+    expression = expression + '/'
+    entrylabel.configure(text=expression)
+    
+def getAns():
+    global expression
+    answer = eval(expression)
+    entrylabel.configure(text=answer)
+
+def getVal_clear():
+    global expression
+    expression = ''
+    entrylabel.configure(text=expression)
+    
+def getVal_back():
+    global expression
+    answer = expression[:-1]
+    expression = answer
+    entrylabel.configure(text=expression)
+    
+def getVal_braces1():
+    global expression
+    expression = expression + '('
+    entrylabel.configure(text=expression)
+    
+def getVal_braces2():
+    global expression
+    expression = expression + ')'
+    entrylabel.configure(text=expression)
+    
+def getVal_dot():
+    global expression
+    expression = expression + '.'
+    entrylabel.configure(text=expression)
+
+
+
+entrylabel = Label(root,width=80,height=1,fg='black',font='aerial 40',justify='center',relief='raised')
+entrylabel.pack(pady=7,padx=10)
+
+button1 = Button(root,width=5,height=2,text='1',font='ds-digital 20 ',command=getVal1,fg='#fff',bg='#2a2d36')
+button1.place(x=125,y=80)
+
+button2 = Button(root,command=getVal2,text='2',font='ds-digital 20 ',width=5,height=2,fg='#fff',bg='#2a2d36')
+button2.place(x=225,y=80)
+
+button3 = Button(root,command=getVal3,text='3',font='ds-digital 20 ',width=5,height=2,fg='#fff',bg='#2a2d36')
+button3.place(x=325,y=80)
+
+button4 = Button(root,command=getVal4,text='4',font='ds-digital 20 ',width=5,height=2,fg='#fff',bg='#2a2d36')
+button4.place(x=125,y=175)
+
+button5 = Button(root,command=getVal5,text='5',font='ds-digital 20 ',width=5,height=2,fg='#fff',bg='#2a2d36')
+button5.place(x=225,y=175)
+
+button6 = Button(root,command=getVal6,text='6',font='ds-digital 20 ',width=5,height=2,fg='#fff',bg='#2a2d36')
+button6.place(x=325,y=175)
+
+button7 = Button(root,command=getVal7,text='7',font='ds-digital 20 ',width=5,height=2,fg='#fff',bg='#2a2d36')
+button7.place(x=125,y=270)
+
+button8 = Button(root,command=getVal8,text='8',font='ds-digital 20',width=5,height=2,fg='#fff',bg='#2a2d36')
+button8.place(x=225,y=270)
+
+button9 = Button(root,command=getVal9,text='9',font='ds-digital 20 ',width=5,height=2,fg='#fff',bg='#2a2d36')
+button9.place(x=325,y=270)
+
+button0 = Button(root,command=getVal0,text='0',font='ds-digital 18',width=13,height=2,fg='#fff',bg='#2a2d36')
+button0.place(x=125,y=370)
+
+button_equals = Button(root,text='=',command=getAns,font='ds-digital 17',width=8,height=1,pady=10,fg='#fff',bg='#fe9037')
+button_equals.place(x=425,y=80)
+
+button_add = Button(root,text='+',command=getVal_add,font='ds-digital 17',width=8,height=1,pady=10,fg='#fff',bg='#2a2d36')
+button_add.place(x=425,y=155)
+
+button_sub = Button(root,text='-',command=getVal_sub,font='ds-digital 17',width=8,height=1,pady=10,fg='#fff',bg='#2a2d36')
+button_sub.place(x=425,y=230)
+
+button_mul = Button(root,text='*',command=getVal_mul,font='ds-digital 17',width=8,height=1,pady=10,fg='#fff',bg='#2a2d36')
+button_mul.place(x=425,y=305)
+
+button_div = Button(root,text='/',command=getVal_div,font='ds-digital 17',width=8,height=1,pady=10,fg='#fff',bg='#2a2d36')
+button_div.place(x=425,y=380)
+
+button_clear = Button(root,font='ds-digital 19 bold',text='C',width=6,height=3,padx=4,pady=5,command=getVal_clear,bg='#3697f5',fg='#fff')
+button_clear.place(x=10,y=80)
+
+button_back = Button(root,text='BACK',command=getVal_back,font='ds-digital 19 bold',width=6,height=2,fg='#fff',bg='#949398',padx=4,pady=4)
+button_back.place(x=10,y=355)
+
+button_braces1 = Button(root,text='(',command=getVal_braces1,font='ds-digital 20',width=6,pady=5,fg='#fff',bg='#2a2d36')
+button_braces1.place(x=10,y=210)
+
+button_braces2 = Button(root,text=')',command=getVal_braces2,font='ds-digital 20',width=6,pady=5,fg='#fff',bg='#2a2d36')
+button_braces2.place(x=10,y=282)
+
+button_dot = Button(root,text='.',command=getVal_dot,font='ds-digital 20 ',width=5,pady=10,fg='#fff',bg='#2a2d36')
+button_dot.place(x=325,y=370)
+
+root.mainloop()
